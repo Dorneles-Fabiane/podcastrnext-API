@@ -1,10 +1,10 @@
 import { Router } from 'express';
+import { UsersController } from './controller/UsersController';
 
 const routes = Router();
 
-routes.get('/user', (request, response) => response.json({
-  name: "Fabiane",
-  age: "25"
-}));
+const usersController = new UsersController();
+
+routes.post('/user', usersController.create);
 
 export default routes;
